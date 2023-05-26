@@ -1,0 +1,104 @@
+@use '/src/assets/scss/utils/shared.scss' as *;
+
+.header{
+  @include flex(flex, row, wrap, space-between,center);
+  position: relative;
+  height: 8rem;
+  background-color: map-get($colors, header-clr);
+
+  @media screen and (min-width: map-get($media, md)) {
+    padding: 0 1rem;
+  }
+
+  &-img{
+    width: 4rem;
+    height: 4rem;
+    aspect-ratio: 1/1;
+  }
+}
+
+.navbar{
+  width: min(80%,20rem);
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%) translateX(-100%);
+  background-color: rgba(195, 127, 255, 0.204);
+  transition: transform .2s linear;
+
+  @media screen and (min-width: map-get($media, md)) {
+    width: auto;
+    position: initial;
+    transform: initial;
+    background-color: transparent;
+  }
+  
+  &-list{
+    @include flex(flex, column, wrap, space-between,center);
+    padding: 1rem;
+
+    @media screen and (min-width: map-get($media, md)) {
+      flex-direction: row;
+      gap: 2rem;
+    }
+  }
+
+  &-item{
+    position: relative;
+    width: 10rem;
+    padding: 1rem 0;;
+    overflow-x:hidden ;
+    @media screen and (min-width:map-get($media, md)) {
+      width: auto;
+    }
+
+    &::before,
+    &::after{
+      content: '';
+      position: absolute;
+      height: .15rem;
+      width: 100%;
+      transition: width .5s linear, transform .5s linear;
+      opacity: 0;
+      @media screen and (min-width:map-get($media, md)) {
+        height: .1rem;
+      }
+    }
+
+    &::before{
+      bottom: 10%;
+      background-color: aqua;
+      transform: translateX(-100%);
+      @media screen and (min-width:map-get($media, md)) {
+        bottom: 20%;
+      }
+    }
+
+    &::after{
+      top: 10%;
+      background-color: antiquewhite;
+      transform: translateX(100%);
+      @media screen and (min-width:map-get($media, md)) {
+        top: 20%;
+      }
+    }
+
+    &:hover::before{
+      transform: translateX(100%);
+      opacity: 1;
+    }
+    
+    &:hover::after{
+      transform: translateX(-100%);
+      opacity: 1;
+    }
+  }
+
+  &-link{
+    font-weight: 900;
+    text-transform: capitalize;
+  }
+}
+
+.appearMenu{
+  transform: translateY(100%) translateX(0);
+}

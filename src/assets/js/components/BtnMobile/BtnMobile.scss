@@ -1,0 +1,9 @@
+.btnMobile{
+  cursor: pointer;
+  border: solid 1px red;
+  padding: 0.5rem;
+
+  @media screen and (min-width: 47.5rem){
+    display: none;
+  }
+}
