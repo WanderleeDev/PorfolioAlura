@@ -1,0 +1,52 @@
+@use 'src/assets/scss/utils/shared.scss' as *;
+
+.socialMedia{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: min(80%,17rem);
+  height: 4rem;
+  margin-inline: auto;
+  @media screen and (min-width: map-get($media,md) ) {
+    grid-area: 3/1/4/2;
+  }
+
+  &-link{
+    width: min(3.5rem, 20vw);
+  }
+
+  &-link:nth-child(odd){
+    animation: 5s toBlink ease-in-out 3 5s ;
+  }
+
+  &-link:nth-child(even){
+    animation: 2s toBlink ease-in-out 7s ;
+  }
+
+  &-svg{
+    --clrVarLight: #fffbe7;
+    --clrVar: #ffde20bc;
+    --clrVarDark: #a67169;
+    width: 100%;
+    padding: 0.5rem;
+    border: solid 0.19rem var(--clrVarLight);
+    border-radius: 0.5rem;
+    background-color: rgb(0, 0, 0, 0.7);
+    fill: none;
+    @include neonSign(inherit, var(--clrVarLight));
+    transition: 0.3s linear;
+    &:hover{
+      animation: 3s toBlink infinite ;
+    } 
+  }
+  
+}
+
+
+
+
+
+
+
+
+

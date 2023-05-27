@@ -23,6 +23,7 @@
   bottom: 0;
   transform: translateY(100%) translateX(-100%);
   background-color: rgba(195, 127, 255, 0.204);
+  backdrop-filter: blur(.15rem);
   transition: transform .2s linear;
 
   @media screen and (min-width: map-get($media, md)) {

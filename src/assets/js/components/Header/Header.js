@@ -1,6 +1,7 @@
 import './Header.scss';
 import { BtnMobile } from '../BtnMobile/BtnMobile';
 import { btnClickMobile } from '../../utils/btnClickMobile';
+import { tempContainer } from '../../utils/tempContainer';
 
 export const Header = () => {
   const listContent = ['Sobre mi', 'Skills', 'Formación', 'proyectos'];
@@ -31,16 +32,13 @@ export const Header = () => {
     </header>
   `;
 
-  const tempContainer = document.createElement('div');
-  tempContainer.innerHTML = header.trim();
+  const tag = tempContainer(header);
 
-  const headerElement = tempContainer.firstChild;
-  
   //selección del btn 
-  const btnElement = headerElement.querySelector('.btnMobile');
+  const btnElement = tag.querySelector('.btnMobile');
   
   //evento escucha agregado
   btnElement.addEventListener('click', ()=> btnClickMobile('.navbar', 'appearMenu'));
 
-  return headerElement;
+  return tag;
 };

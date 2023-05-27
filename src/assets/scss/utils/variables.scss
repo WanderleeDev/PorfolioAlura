@@ -4,14 +4,13 @@ $colors: (
 );
 
 $spacing: (
-  spacing-1: 0.5rem,
-  spacing-2: 1rem,
-  spacing-3: 1.5rem,
-  spacing-4: 2rem,
-  spacing-5: 3rem,
-  spacing-6: 4rem,
-  spacing-7: 5rem,
-  spacing-8: 10rem,
+  spacing-xs: 0.5rem,
+  spacing-1: 1rem,
+  spacing-2: 2rem,
+  spacing-3: 3rem,
+  spacing-4: 4rem,
+  spacing-5: 5rem,
+  spacing-10: 10rem,
   spacing-responsive: min(20vw, 5rem)
 );
 
@@ -22,7 +21,7 @@ $font: (
   md-font: 2rem,
   lg-font: 2.5rem,
   xl-font: 3.5rem,
-  responsive-font: min(12vw, 6rem)
+  responsive-font: max(1.8vw, 1.2rem)
 );
 
 $media: (

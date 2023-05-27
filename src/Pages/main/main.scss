@@ -1,0 +1,16 @@
+@use 'src/assets/scss/utils/shared.scss' as *;
+
+
+main{
+  display: grid;
+  gap: max(15vw, 4rem );
+  @media screen and (min-width: map-get($media,lg) ) {
+    padding: 0 5rem;
+  }
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-size: min(#{16vw - $i*2}, #{5rem - $i});
+  }
+}

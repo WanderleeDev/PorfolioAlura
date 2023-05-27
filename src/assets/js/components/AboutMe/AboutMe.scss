@@ -1,0 +1,43 @@
+@use '/src/assets/scss/utils/shared.scss' as *;
+
+.aboutMe{
+  --clrVarLight: #fff9fe;
+  --clrVar: #cd72fec9;
+  --clrVarDark: #c091d9;
+  position: relative;
+  display: grid;
+  gap: 3rem;
+  @media screen and (min-width: map-get($media, lg)) {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  &-header{
+    @media screen and (min-width: map-get($media, lg)) {
+      order: 1;
+    }
+  }
+
+  &-title{
+    @include neonSign();
+    @include titleStyleBase();
+    animation: flickerText 5s ease-in-out infinite;
+  }
+
+  &-content{
+    max-width: 40ch;
+    padding: 1rem;
+    margin-inline: auto;
+    font-size: map-get($font , responsive-font );
+    border-radius: 0.2rem;
+    border-left: solid .19rem var(--clrVarLight);
+    border-right: solid .19rem var(--clrVarLight);
+    backdrop-filter: blur(10px) saturate(150%);
+    background-color: rgba(32, 31, 31, 0.472);
+    box-shadow: 
+    inset -8px 0px 10px var(--clrVar),
+    inset 8px 0px 10px var(--clrVar),
+    8px 0px 10px var(--clrVar),
+    -8px 0px 10px var(--clrVar);
+  }
+}
