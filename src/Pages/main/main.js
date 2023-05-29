@@ -6,6 +6,7 @@ import { FutureStudies } from '../../assets/js/components/FutureStudies/FutureSt
 import { Studies } from '../../assets/js/components/Studies/Studies';
 import { Project } from '../../assets/js/components/Project/Project';
 import { addContent } from "../../assets/js/utils/addContent";
+import { Contact } from '../../assets/js/components/Contact/Contact';
 
 
 export const main = () => {
@@ -15,4 +16,5 @@ export const main = () => {
   addContent('#app', FutureStudies(), 'beforeend');
   addContent('#app', Studies(), 'beforeend');
   addContent('#app', Project(), 'beforeend')
+  addContent('#app', Contact(), 'beforeend')
 };

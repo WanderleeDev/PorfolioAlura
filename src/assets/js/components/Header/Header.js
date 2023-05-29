@@ -12,7 +12,7 @@ export const Header = () => {
 
   const header = `
     <header class="header">
-      <img loading="lazy" class="header-img" href=${img.replace('dl=0', 'raw=1')}/>
+      <img alt="logo page" loading="lazy" class="header-img" href=${img.replace('dl=0', 'raw=1')}/>
       ${btn.outerHTML}
       <nav class="navbar">
         <ul class="navbar-list">

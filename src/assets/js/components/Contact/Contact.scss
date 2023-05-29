@@ -1,0 +1,155 @@
+@use '/src/assets/scss/utils/shared.scss' as *;
+
+.contact{
+  display: grid;
+  gap: 3rem;
+
+  &-title{
+    --clrVarLight: #fffbe7;
+    --clrVar: #ffde20bc;
+    --clrVarDark: #a67169;
+    @include neonSign();
+    @include titleStyleBase();
+    animation: flickerText 5s ease-in-out infinite; 
+  }
+
+  &-content{
+  }
+}
+
+.form{
+  position: relative;
+  display: grid;
+  gap: 3rem;
+  place-items: center;
+  margin-inline: auto;
+  padding: 3rem 1rem;
+  background: linear-gradient(300deg, #cd71fe44, #a0f0f33e);
+  //backdrop-filter: blur(5px);
+  overflow: hidden;
+
+  &::after,
+  &::before{
+    --clrVarLight: #fff9fe;
+    --clrVar: #cd72fec9;
+    --clrVarDark: #c091d9;
+    --clrVarAlt: #66aaf87c;
+    position: absolute;
+    width: 0.5rem;
+    height: 0.5rem;
+    content: "";
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 30vw -45rem 0.5rem var(--clrVarLight),
+              -30vw 20vw 0.4rem var(--clrVar),
+              30vw -30vw 0.1rem var(--clrVarLight),
+              3vw -20vw 0.2rem var(--clrVarDark),
+              30vw 30vw 0.1rem var(--clrVar),
+              20vw 20vw 0.2rem var(--clrVarAlt),
+              -20vw 40vw 0.2rem var(--clrVarAlt),
+              -30vw -30vw 0.2rem var(--clrVarAlt),
+              10vw -20vw 0.2rem var(--clrVarLight),
+              20vw 20vw 0.2rem var(--clrVarAlt),
+              10vw 20vw 0.3rem var(--clrVarDark),
+              -20vw 10vw 0.3rem var(--clrVarDark),
+              10vw 20vw 0.3rem var(--clrVarLight),
+              -10vw 30vw 0.3rem var(--clrVarDark),
+              -40vw -20vw 0.6rem var(--clrVar);
+    animation: rotate 40s linear infinite;  
+    opacity: 1;    
+    z-index: -1;
+  }
+  &::before{
+    bottom: 20%;
+    left: 10%;
+  }
+  &::after{
+    top: 20%;
+    right: 10%;
+  }
+
+  @media screen and (min-width:rem(500)) {
+    width: min(80%, 30rem);
+  }
+
+  &-subContainer{
+    position: relative;
+  }
+
+  &-question{
+    position: absolute;
+    padding: .5rem;
+    z-index: 1;
+    
+    &:hover{
+      animation: moveUp .3s linear forwards;
+    }
+  }
+
+  &-answer{
+    width: 100%;
+    padding: .7rem;
+    background-color: #fffbe73a;
+    backdrop-filter: blur(.3rem);
+
+    &--min-h{
+      padding: 2rem;
+      resize: none;
+      height: 8rem;
+    }
+  }
+
+  &-pyc{
+    display: flex;
+    gap: .5rem;
+  }
+
+  &-checkBox{
+    accent-color: #faec58;
+  }
+
+  &-labelPyc{
+
+  }
+
+  &-link{
+    &:hover{
+      color: #faec58;
+    }
+  } 
+}
+
+
+.formsBtn{
+  display: flex;
+  gap: 1rem;
+
+  &-btn{
+    width: 7rem;
+    padding: .5rem 1rem;
+    border-radius: .3rem;
+    background-color: #00000050;
+    backdrop-filter: blur(.3rem);
+    cursor: pointer;
+  }
+}
+
+@keyframes rotate {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveUp {
+  0%{
+    transform: translateY(0);
+    font-size: 1rem;
+  }
+  100%{
+    transform: translateY(-1.5rem);
+    font-size: .7rem;
+  }
+}

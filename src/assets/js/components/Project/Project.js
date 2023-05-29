@@ -31,26 +31,32 @@ export const Project = () => {
       skills: ['Html, Tailwind, JS'],
       web: "https://wanderleedev.github.io/Acecombat-Page--TailwindCSS/",
       repository: "https://github.com/WanderleeDev/Acecombat-Page--TailwindCSS"
+    },
+    {
+      img: "https://www.dropbox.com/s/dspg91ouu6pyc4w/minMax.png?raw=1",
+      alt: 'Minmax-number',
+      skills: ['Html, Css, JS'],
+      web: "https://wanderleedev.github.io/minmax-number/",
+      repository: "https://github.com/WanderleeDev/minmax-number"
     }
-
   ]
 
   const section = `
-  <section class="sectionProject">
+  <section class="project">
     <header>
-      <h2 class="sectionProject__title">
-        <span class="title__letter">P</span>
-        <span class="title__letter">r</span>
-        <span class="title__letter">o</span>
-        <span class="title__letter">y</span>
-        <span class="title__letter">e</span>
-        <span class="title__letter">c</span>
-        <span class="title__letter">t</span>
-        <span class="title__letter">o</span>
-        <span class="title__letter">s</span>
+      <h2 class="project-title">
+        <span class="title-letter">P</span>
+        <span class="title-letter">r</span>
+        <span class="title-letter">o</span>
+        <span class="title-letter">y</span>
+        <span class="title-letter">e</span>
+        <span class="title-letter">c</span>
+        <span class="title-letter">t</span>
+        <span class="title-letter">o</span>
+        <span class="title-letter">s</span>
       </h2>
     </header>
-    <div class="projectContainer">
+    <div class="project-container">
 
       ${
         dataProjects.map((data)=>{
@@ -58,18 +64,18 @@ export const Project = () => {
           const {img, alt, skills, web ,repository} =data;
 
           return(`
-          <figure class="project">
-            <figcaption class="project__auxiliaryText">Web Birds</figcaption>
-            <div class="project__containerImg">
-              <img loading="lazy" src=${img} alt="imagen de pagina ${alt}" class="project__img">
+          <figure class="project-card">
+            <figcaption class="project-cardTitle">${alt}</figcaption>
+            <div class="project-containerImg">
+              <img loading="lazy" src=${img} alt="imagen de pagina ${alt}" class="project-cardImg">
             </div>
 
             <div class="btnContainer">
-              <button class="btnContainer__btn" aria-label="Ir a la ${alt}">
-                <a target="_blank" href=${web} class="btnContainer__link" rel="noopener">Ver sitio</a>
+              <button class="btnContainer-btn" aria-label="Ir a la ${alt}">
+                <a target="_blank" href=${web} class="btnContainer-link" rel="noopener">Ver sitio</a>
               </button>
-              <button class="btnContainer__btn aria-label="Ver repositorio de ${alt}">
-                <a target="_blank" href=${repository} class="btnContainer__link">Ver repo</a>
+              <button class="btnContainer-btn aria-label="Ver repositorio de ${alt}">
+                <a target="_blank" href=${repository} class="btnContainer-link">Ver repo</a>
               </button>
             </div>
           </figure>

@@ -1,0 +1,149 @@
+@use '/src/assets/scss/utils/shared.scss' as *;
+
+.project{
+  display: grid;
+  gap: 3rem;
+
+  &-title{
+    --clrVarLight: #fff9fe;
+  --clrVar: #cd72fec9;
+  --clrVarDark: #c091d9;
+  --clrVarLight2: #f6ffff;
+  --clrVar2: #9ff0f3bc;
+  --clrVarDark2: #3acbdc;
+  @include neonSign();
+  @include titleStyleBase();
+  box-shadow: inset 1px 1px 1px 1px var(--clrVarDark2),
+  inset 2px 2px 15px var(--clrVar2),
+  inset -1px -1px 1px 1px var(--clrVarDark),
+  inset -2px -2px 15px var(--clrVar),
+  1px 1px 1px 1px var(--clrVarDark),
+  2px 2px 15px var(--clrVar),
+  -1px -1px 1px 1px var(--clrVarDark2),
+  -2px -2px 15px var(--clrVar2);
+  animation: flickerText 5s ease-in-out infinite; 
+}
+  .title-letter{
+    animation: toBlink 5s ease-in-out infinite var(--delay);
+
+    &:nth-child(4){
+      animation-play-state: paused;
+    }
+
+    $delay-values: (100ms, 200ms, 300ms, 0ms, 200ms, 300ms, 500ms, 600ms, 100ms);
+
+    @for $i from 1 through 9{
+      &:nth-child(#{$i}){
+        --delay:#{nth($delay-values,$i)};
+      }
+    }
+  }
+
+  &-container{
+    display: grid;
+    gap: 5rem;
+
+    @media screen and (min-width: 40rem) {
+      grid-template-columns: repeat(2, 1fr);      
+    }
+    @media screen and (min-width: 93.75rem) {
+      grid-template-columns: repeat(3, 1fr);      
+    }
+  }
+  
+  &-card{
+    position: relative;
+    background:rgba(255, 255, 255, 0.146);
+
+
+    &:hover .btnContainer{
+      opacity: 1;
+      pointer-events: all;
+    }
+    &:hover .project-cardImg{
+      opacity: .7;
+      transition: opacity 1s linear;
+    }
+    &:hover .project-cardTitle{
+      background:rgba(255, 255, 255, 0.245);
+      backdrop-filter: blur(.1rem);
+    }
+    &:hover .project-containerImg::before{
+      opacity: .8;
+      transition: opacity 1s linear;
+    }
+  }
+  
+  &-cardTitle{
+    aspect-ratio: 3/1;
+    display: grid;
+    text-align: center;
+    font-weight: 900;
+    letter-spacing: 0.1rem;
+    place-items:center;
+    position: absolute;
+    inset: 50% 0 0 50%;
+    width: max-content;
+    padding: .5rem;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    transition: background-color 0.5s linear;
+
+    @media screen and (min-width: rem(400)) {
+      aspect-ratio: 2/1;
+    }
+  }
+  
+  &-containerImg{
+  position: relative;
+  background: linear-gradient(300deg, #cd71fe44, #a0f0f33e) ;
+
+  &::before{
+    position: absolute;
+    inset: 0;
+    content: '';
+    background: linear-gradient( #05070cab, #05070cbe);
+    opacity: 0;
+    z-index: 1;
+  }
+}
+&-cardImg{
+  opacity: 0;
+  aspect-ratio: 6/3;
+  }
+}
+
+.btnContainer{
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .3s linear .5s;
+  padding: 0.5rem;
+
+  &:hover{
+    opacity: 1;
+  }
+
+  &-btn{
+    animation: toBlink 5s linear infinite;
+    background-color: #ffffff2e;
+    padding: .5rem;
+    border-radius: .4rem;
+  }
+
+  &-link{
+    --clrVarLight: #fffbe7;
+    --clrVar: #ffde20bc;
+    --clrVarDark: #a67169;
+    animation: flickerText 3s ease-in-out infinite;
+    
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+  
+}
