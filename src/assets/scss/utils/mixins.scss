@@ -6,8 +6,8 @@
   gap: $gap;
 }
 
-@mixin titleStyleBase(){
-  width: max-content;
+@mixin titleStyleBase($width:max-content){
+  width: $width;
   margin-inline: auto;
   padding: .0rem 1rem;
   background-color: rgb(0, 0, 0, 0.7);

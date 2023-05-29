@@ -1,0 +1,247 @@
+@use '/src/assets/scss/utils/shared.scss' as *;
+
+.noria{
+  overflow-x: scroll;
+
+  &-ejeCentral{
+    display: none;
+  }
+
+  &-containerBoxes{
+    display: flex;
+    width: 1000%;
+  }
+  
+  &-box{
+    padding: 1rem;
+    flex: 1 1 100%;
+  }
+  
+  &-boxElements{
+    height: 10rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: .5rem;
+    background: linear-gradient(-125deg, #1e1c1c, #fff);
+  }
+
+  &-img{
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    width: 5rem;
+  }
+  
+  &-text{
+    padding: 0 .5rem;
+    @include textNeon();
+    animation: flickerText .5s linear infinite;
+  }
+}
+
+
+
+@media screen and (min-width: map-get($media, sm)) {
+  .noria {
+    overflow: hidden;
+
+    --size: 6rem;
+    position: relative;
+    display: grid;
+    place-items: center;
+    height: 90vh;
+    justify-items: end;
+    
+    @media screen and (min-width: 520px) {
+    justify-items: center;
+    }
+
+    &-ejeCentral{
+      --clrVarLight: #ffffff00;
+      --clrVar: #ffffffa9;
+      --clrVarDark: #ffffff9a;
+      @include neonSign();
+      display: grid;
+      place-content: center;
+
+      width: var(--size);
+      height: var(--size);
+      aspect-ratio: 1/1;
+      font-weight: 900;
+      position: absolute;
+      border-radius: 1rem;
+      animation: toBlink 5s linear infinite;
+    }
+
+    &-containerBoxes{
+      display: initial;
+
+      --time: 30s;
+      --distancia: calc(var(--size) + 8rem);
+      --deg: 0deg;
+      width: var(--size);
+      height: var(--size);
+      justify-content: center;
+      align-items: center;
+      position: absolute ;
+      animation: girar var(--time) infinite linear;
+      animation-play-state: var(--pausarAnimaciones);  
+      
+      &:hover {
+        --pausarAnimaciones : paused;
+      }
+      
+      $total:10;
+      @for $i from 1 through ($total) {
+        :nth-child(#{$i}){
+          --deg: calc((360deg / #{$total} ) * #{$i});
+        }
+      }
+    }
+
+    &-box{
+      @include neonSign();
+      display: grid;
+      position: absolute;
+      height: calc(var(--size) / 1.2);
+      width: calc(var(--size) / 1.2);
+      padding: 0.5rem;
+      border-radius: 50%;
+      background-color: aliceblue;
+      transform: translate(
+        calc(cos(var(--deg)) * var(--distancia)),
+        calc(sin(var(--deg)) * var(--distancia))
+      );
+
+      &:has(.noria-img):hover .noria-img{
+        animation:  scale 1.5s linear infinite;
+      }
+
+      &:hover{
+        animation: toBlink 5s ease-in-out infinite;
+      }
+
+      &:nth-child(1){
+        --clrVarLight: #ebebeb;
+        --clrVar: #c8c8c8bc;
+        --clrVarDark: #697080;
+        border:solid 2px var(--clrVarLight);
+      }
+      
+      &:nth-child(2){
+        --clrVarLight: #effaf4;
+        --clrVar: #2df48dbc;
+        --clrVarDark: #029279;
+        border:solid 2px var(--clrVarLight);
+      }
+      
+      &:nth-child(3){
+        --clrVarLight: #fde8e8;
+        --clrVar: #ef6676bc;
+        --clrVarDark: #d99894;
+        border:solid 2px var(--clrVarLight);
+      }
+      
+      &:nth-child(4){
+        --clrVarLight: #e1f8f1;
+        --clrVar: #2cedadbc;
+        --clrVarDark: #6fc2a6;
+        border:solid 2px var(--clrVarLight);
+      }
+      
+      &:nth-child(5){
+        --clrVarLight: #f6ffff;
+        --clrVar: #9ff0f3bc;
+        --clrVarDark: #3acbdc;
+        border:solid 2px var(--clrVarLight);
+      }
+      
+      &:nth-child(6){
+        --clrVarLight: #fffbe7;
+        --clrVar: #ffde20bc;
+        --clrVarDark: #a67169;
+        --clrVarLight2: #dedff9;
+        --clrVar2: #292fe8bc;
+        --clrVarDark2: #6f72c2;
+        box-shadow: inset 1px 1px 1px 1px var(--clrVarDark2),
+        inset 2px 2px 15px var(--clrVar2),
+        inset -1px -1px 1px 1px var(--clrVarDark),
+        inset -2px -2px 15px var(--clrVar),
+        1px 1px 1px 1px var(--clrVarDark),
+        2px 2px 15px var(--clrVar),
+        -1px -1px 1px 1px var(--clrVarDark2),
+        -2px -2px 15px var(--clrVar2); 
+        border:solid 2px var(--clrVarLight2) ;
+      }
+      
+      &:nth-child(7){
+        --clrVarLight: #effaf4;
+        --clrVar: #2df48dbc;
+        --clrVarDark: #029279;
+        border:solid 2px var(--clrVarLight);
+      }
+      
+      &:nth-child(8),
+      &:nth-child(10){
+        --clrVarLight: #dedff9;
+        --clrVar: #292fe8bc;
+        --clrVarDark: #6f72c2;
+        border:solid 2px var(--clrVarLight);
+      }
+      
+      &:nth-child(9){
+        --clrVarLight: #fee4fd;
+        --clrVar: #e829dbbc;
+        --clrVarDark: #c26fba;
+        --clrVarLight2: #dedff9;
+        --clrVar2: #292fe8bc;
+        --clrVarDark2: #6f72c2;
+        box-shadow: inset 1px 1px 1px 1px var(--clrVarDark2),
+        inset 2px 2px 15px var(--clrVar2),
+        inset -1px -1px 1px 1px var(--clrVarDark),
+        inset -2px -2px 15px var(--clrVar),
+        1px 1px 1px 1px var(--clrVarDark),
+        2px 2px 15px var(--clrVar),
+        -1px -1px 1px 1px var(--clrVarDark2),
+        -2px -2px 15px var(--clrVar2); 
+        border:solid 2px var(--clrVarLight) ;
+      }
+    }
+
+    &-boxElements{
+      display: initial;
+      height: initial;
+      border-radius: initial;
+      background: initial;
+
+      //position: relative;
+      padding: 0.5rem;
+      animation: girar var(--time) infinite linear reverse;
+      animation-play-state: var(--pausarAnimaciones);
+      
+    }
+
+    &-text{
+      display: none;
+      color: aliceblue;
+    }
+  }
+}
+
+@keyframes scale {
+  0%{
+    transform:  scale(1);
+  }
+  50%{
+    transform:  scale(1.3);
+  }
+  100%{
+    transform:  scale(1);
+  }
+}
+
+@keyframes girar {
+  100%{ 
+    transform: rotate(360deg);
+  }
+}

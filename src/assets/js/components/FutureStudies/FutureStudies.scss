@@ -1,0 +1,31 @@
+@use '/src/assets/scss/utils/shared.scss' as *;
+
+.futureStudies{
+  --clrVarLight: #fee4fd;
+  --clrVar: #e829dbbc;
+  --clrVarDark: #c26fba;
+  --clrVarLight2: #dedff9;
+  --clrVar2: #292fe8bc;
+  --clrVarDark2: #6f72c2;
+  display: grid;
+  gap: 3rem;
+  overflow-x: hidden;
+
+  &-title{
+    @include neonSign();
+    @include titleStyleBase(initial);
+    box-shadow: inset 1px 1px 1px 1px var(--clrVarDark2),
+    inset 2px 2px 15px var(--clrVar2),
+    inset -1px -1px 1px 1px var(--clrVarDark),
+    inset -2px -2px 15px var(--clrVar),
+    1px 1px 1px 1px var(--clrVarDark),
+    2px 2px 15px var(--clrVar),
+    -1px -1px 1px 1px var(--clrVarDark2),
+    -2px -2px 15px var(--clrVar2); 
+    animation: flickerText 5s ease-in-out infinite;
+
+    @media screen and (min-width: 37.5rem) {
+      width: max-content;
+    }
+  }
+}

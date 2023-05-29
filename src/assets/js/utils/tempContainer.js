@@ -4,7 +4,7 @@ export function tempContainer(content) {
   const tempContainer = document.createElement('div');
   tempContainer.innerHTML = content.trim();
 
-  const headerElement = tempContainer.firstChild;
+  const element = tempContainer.firstChild;
   
-  return headerElement
+  return element
 }
