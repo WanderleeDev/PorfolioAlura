@@ -1,5 +1,8 @@
-import { tempContainer } from '../../utils/tempContainer';
 import './Contact.scss'
+import { tempContainer } from '../../utils/tempContainer';
+
+import {validateForm} from '../../validación/validate';
+
 
 export const Contact = () =>{
 
@@ -44,6 +47,8 @@ export const Contact = () =>{
             <div class="form-subContainer">
               <label for=${name} class="form-question">${description} :</label>
               <input autocomplete="off" type=${type} id=${name} name=${name} class="form-answer" required>
+              <p class="containerValidity">
+              </p>
             </div>
           `);
         }).join("")
@@ -51,6 +56,11 @@ export const Contact = () =>{
       <div class="form-subContainer">
         <label for="comment" class="form-question">Comentarios :</label>
         <textarea name="comment" id="comment" class="form-answer form-answer--min-h"></textarea>
+        <p class="containerValidity">
+          * Formato valido
+        </p>
+        <p class="containerValidity">
+        </p>
       </div>
 
       <div class="form-pyc">
@@ -71,5 +81,6 @@ export const Contact = () =>{
   `;
 
   const tag = tempContainer(section);
+  validateForm(tag);
   return tag;
 }

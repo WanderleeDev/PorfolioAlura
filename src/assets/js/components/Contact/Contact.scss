@@ -12,9 +12,6 @@
     @include titleStyleBase();
     animation: flickerText 5s ease-in-out infinite; 
   }
-
-  &-content{
-  }
 }
 
 .form{
@@ -79,11 +76,9 @@
   &-question{
     position: absolute;
     padding: .5rem;
+    transition: transform .3s linear, font-size .3s linear;
+    pointer-events: none;
     z-index: 1;
-    
-    &:hover{
-      animation: moveUp .3s linear forwards;
-    }
   }
 
   &-answer{
@@ -108,15 +103,18 @@
     accent-color: #faec58;
   }
 
-  &-labelPyc{
-
-  }
-
   &-link{
     &:hover{
       color: #faec58;
     }
   } 
+}
+
+.containerValidity{
+  position: absolute;
+  display: none;
+  width: 100%;
+  font-size: .8rem;
 }
 
 
@@ -152,4 +150,20 @@
     transform: translateY(-1.5rem);
     font-size: .7rem;
   }
+}
+
+.moveUp{
+  transform: translateY(-1.5rem);
+  font-size: .7rem;
+}
+
+.valid{
+  display: initial;
+  color: #1ab905;
+
+}
+
+.invalid{
+  display: initial;
+  color: red;
 }
