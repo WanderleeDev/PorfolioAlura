@@ -14,11 +14,9 @@ export function mediaQuery(codeToExecute, removeCodeToExecute) {
     if (event.matches) {
       //si el evento entra dentro de las dimensiones deseadas de media ejecuta esta función
       codeToExecute();
-      console.log(true);
     }else{
       //De lo contrario agregamos la función que removerá el evento
       removeCodeToExecute();
-      console.log(false);
     }
   })
 }

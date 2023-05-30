@@ -42,7 +42,7 @@ export const Project = () => {
   ]
 
   const section = `
-  <section class="project">
+  <section id="project" class="project">
     <header>
       <h2 class="project-title">
         <span class="title-letter">P</span>

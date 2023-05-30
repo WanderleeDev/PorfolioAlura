@@ -2,30 +2,56 @@ import './Header.scss';
 import { BtnMobile } from '../BtnMobile/BtnMobile';
 import { btnClickMobile } from '../../utils/btnClickMobile';
 import { tempContainer } from '../../utils/tempContainer';
+import miLogo from '../../../../../public/miLogo.svg'
 
 export const Header = () => {
-  const listContent = ['Sobre mi', 'Skills', 'Formación', 'proyectos'];
-  const img = "https://www.dropbox.com/s/mh06en7jmquu4gd/logo.svg?dl=0";
+  const img = "https://www.dropbox.com/s/o4ilhdbp8si5ogx/miLogo.svg?raw=1";
+  
+  const listData= [
+    {
+      content: 'Sobre mi',
+      id: 'presentation'
+    },
+    {
+      content: 'Skills',
+      id: 'skills'
+    },
+    {
+      content: 'Formación',
+      id: 'studiesSection'
+    },
+    {
+      content: 'Proyectos',
+      id: 'project'
+    },
+    {
+      content: 'Contacto',
+      id: 'contact'
+    }
+  ]
 
   const btn = BtnMobile();
 
-
   const header = `
     <header class="header">
-      <img alt="logo page" loading="lazy" class="header-img" href=${img.replace('dl=0', 'raw=1')}/>
+      <img alt="logo page" loading="lazy" class="header-img" href=${miLogo}/>
       ${btn.outerHTML}
       <nav class="navbar">
         <ul class="navbar-list">
-          ${listContent
+          ${listData
             .map(
-              (content) => `
+              (data) =>{
+              
+              const {content, id} = data;
+
+              return(`
                 <li class="navbar-item">
-                  <a class="navbar-link" href="#">
+                  <a class="navbar-link" href='#${id}'>
                     ${content}
                   </a>
                 </li>
-              `
-            )
+              `);
+              })
             .join('')}
         </ul>
       </nav>

@@ -7,6 +7,8 @@ import { Studies } from '../../assets/js/components/Studies/Studies';
 import { Project } from '../../assets/js/components/Project/Project';
 import { addContent } from "../../assets/js/utils/addContent";
 import { Contact } from '../../assets/js/components/Contact/Contact';
+import { footer } from '../footer/fotter';
+
 
 
 export const main = () => {

@@ -37,7 +37,7 @@ export const Skills = () =>{
   ]
 
   const section = `
-  <section class="skills">
+  <section id="skills" class="skills">
     <header>
       <h2 class="skills-title">Skills</h2>
     </header>

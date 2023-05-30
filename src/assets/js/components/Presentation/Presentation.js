@@ -5,7 +5,7 @@ export const Presentation = () =>{
   const imgUrl = "https://www.dropbox.com/s/uyv3evu3sh28lw0/meme-gato-optimizado.jpg?dl=0";
 
   const section = `
-    <section class="presentation">
+    <section id="presentation" class="presentation">
     <header>
       <h1 class="presentation-title">Whoami<span>?</span>
       </h1>

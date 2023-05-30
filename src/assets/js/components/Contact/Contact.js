@@ -27,7 +27,7 @@ export const Contact = () =>{
   ];
 
   const section =
-  `<section class="contact">
+  `<section id="contact" class="contact">
     <header>
       <h2 class="contact-title ">Contactos</h2>
     </header>

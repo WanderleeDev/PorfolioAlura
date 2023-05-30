@@ -5,4 +5,5 @@ body{
   background-color: map-get($colors, bg-clr);
   display: grid;
   grid-auto-rows: auto;
+  gap: 3rem;
 }
